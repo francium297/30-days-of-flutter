@@ -47,6 +47,10 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter Username",
                         labelText: "Username",
                       ),
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      },
                     ),
                     TextFormField(
                       obscureText: true,
@@ -54,46 +58,49 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter Password",
                         labelText: "Password",
                       ),
-                      onChanged: (value) {
-                        name = value;
-                        setState(() {});
-                      },
                     ),
                     SizedBox(
                       height: 40.0,
                     ),
                     InkWell(
-                      onTap: () {
+                      onTap: () async {
                         setState(() {
                           changeButton = true;
                         });
-                        //Navigator.pushNamed(context, MyRoutes.homeRoute);
+
+                        await Future.delayed(Duration(seconds: 1));
+                        Navigator.pushNamed(context, MyRoutes.homeRoute);
                       },
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
                         width: changeButton ? 50 : 150,
-                        height: 40,
+                        height: 50,
                         alignment: Alignment.center,
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
-                          ),
-                        ),
+                        child: changeButton
+                            ? Icon(
+                                Icons.done,
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Login",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22,
+                                ),
+                              ),
                         decoration: BoxDecoration(
                             color: Colors.teal,
-                        //     shape: changeButton? BoxShape.circle : BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(changeButton? 20 : 8)
+                            //     shape: changeButton? BoxShape.circle : BoxShape.rectangle,
+                            borderRadius:
+                                BorderRadius.circular(changeButton ? 50 : 8)),
                       ),
-                    ),
-                    // ElevatedButton(
-                    //   child: Text("Login"),
-                    //   onPressed: () {
-                    //     Navigator.pushNamed(context, MyRoutes.homeRoute);
-                    //   },
-                    // ),
+                      // ElevatedButton(
+                      //   child: Text("Login"),
+                      //   onPressed: () {
+                      //     Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      //   },
+                    ), // ),
                   ],
                 ),
               ),
