@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:francium/PAGES/home_page.dart';
 import 'package:francium/utilities/routes.dart';
+import 'package:francium/widgets/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:francium/PAGES/login_page.dart';
 
@@ -13,14 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-        fontFamily: GoogleFonts.lato().fontFamily,
-      ),
+      theme: MyTheme.LightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),

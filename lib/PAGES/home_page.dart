@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:francium/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,13 +10,21 @@ class HomePage extends StatelessWidget {
     final name = "FRANCIUM STUDIO";
 
     return Scaffold(
-      appBar: AppBar(title: Text("FRANCIUM STUDIO"),),
+      appBar: AppBar(
+        //backgroundColor: Colors.white,
+        //elevation: 0.0,
+        //iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "FRANCIUM STUDIO",
+          //style: Colors.black
+        ),
+      ),
       body: Center(
         child: Container(
           child: Text("Welcome to $days days of flutter by $name"),
         ),
       ),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }

@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius:
                             BorderRadius.circular(changeButton ? 50 : 8),
                         child: InkWell(
-                          splashColor: Colors.red,
+                          splashColor: Colors.deepPurple,
                           onTap: () => moveToHome(context),
                           child: AnimatedContainer(
                             duration: Duration(seconds: 1),
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: changeButton
                                 ? Icon(
                                     Icons.done,
-                                    color: Colors.white,
+                                    color: Color.fromARGB(255, 43, 122, 114),
                                   )
                                 : Text(
                                     "Login",
